@@ -21,7 +21,8 @@ func animate():
 	sprite2d.set_texture(sprite.get_texture())
 	sprite2d.set_scale(sprite_scale)
 	audio_stream.set_stream(sound_effect)
-	audio_stream.set_volume_db(sound_Volume_dB)
+	audio_stream.set_volume_db(linear_to_db(sound_Volume_dB))
+	audio_stream.set_pitch_scale(0.6)
 	death_instance.life_time = life_time
 	death_instance.sound_offset = sound_offset
 	

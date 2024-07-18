@@ -94,6 +94,7 @@ replication_config = SubResource("SceneReplicationConfig_erfny")
 
 [node name="volehurt" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_1gujk")
+pitch_scale = 0.5
 max_polyphony = 10
 
 [node name="xp_dropper" parent="." instance=ExtResource("12_ek46y")]
@@ -110,6 +111,7 @@ sprite = NodePath("../Sprite2D")
 unique_name_in_owner = true
 sprite = NodePath("../Sprite2D")
 sound_effect = ExtResource("9_6qna4")
+sound_Volume_dB = 0.4
 sound_offset = 0.05
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
