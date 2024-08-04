@@ -8,6 +8,8 @@ var mult_sync: MultiplayerSynchronizer
 
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var health_container: HealthContainer = %HealthContainer
+@onready var energy_bar: ProgressBar = %EnergyBar
+@onready var energy_container: EnergyContainer = %EnergyContainer
 @onready var motion_controller: MotionController = %MotionController
 
 @export var inventory_data: InventoryData
@@ -38,6 +40,12 @@ func set_health():
 	health_container.health = player_stats.health
 	health_bar.max_value = health_container.max_health
 	health_bar.value = health_container.health
+	
+func set_energy():
+	energy_container.max_energy = player_stats.energy
+	energy_container.energy = player_stats.energy
+	energy_bar.max_value = energy_container.max_energy
+	energy_bar.value = energy_container.energy
 
 func set_speed():
 	motion_controller.max_speed = player_stats.speed
@@ -83,6 +91,12 @@ func _on_health_container_health_changed(_amount):
 	health_bar.value = health_container.health
 	if _amount < 0:
 		%HurtSound.play(0.75)
+		
+		
+func _on_energy_container_energy_changed(_amount):
+	energy_bar.value = energy_container.energy
+	if _amount < 0:
+		print("used energy!")
 
 
 func _on_health_container_health_depleted():
@@ -106,7 +120,7 @@ func heal(amount: int):
 	health_container.heal(amount)
 	
 func energize(amount: int):
-	print("stamina recovered by %s" % amount)
+	energy_container.energize(amount)
 
 func change_weapon(weapon_item_data: ItemDataWeapon):
 	if equipped_weapon:

@@ -12,7 +12,7 @@ region = Rect2(1120, 256, 32, 32)
 [resource]
 script = ExtResource("1_qy3v3")
 health_recover_value = 35
-stamina_recover_value = 35
+energy_recover_value = 35
 name = "Monster's Energy"
 description = "A bottle left behind from an enemy... Seems safe to drink!"
 stackable = true
