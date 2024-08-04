@@ -41,6 +41,7 @@ var xp_level_thresholds: Array[int] = [100, 250, 500, 800, 1300, 2000, 2800, 380
 var max_level = len(xp_level_thresholds) + 1
 var xp: int = 0
 var level: int = 1
+@onready var regen_timer: Timer = $RegenTimer
 
 
 # Called when the node enters the scene tree for the first time.
@@ -67,6 +68,7 @@ func update_stat_totals():
 	speed = base_speed + speed_mod
 	energy = base_energy + energy_mod
 	energy_regen = base_energy_regen + energy_regen_mod
+	
 
 #Call when enemy is killed or quest is completed
 func gain_xp(amount):
@@ -100,3 +102,10 @@ func levelUp():
 	Player.set_health()
 	Player.set_speed()
 	emit_signal("player_leveled_up")
+
+
+func _on_regen_timer_timeout():
+	var Player = get_parent()
+	Player.heal(hp_regen)
+	Player.energize(energy_regen)
+	print("hi")

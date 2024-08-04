@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ldya24kqafli"]
+[gd_scene load_steps=23 format=3 uid="uid://ldya24kqafli"]
 
 [ext_resource type="Texture2D" uid="uid://1uob3lhs3b7i" path="res://assets/player/warrior.png" id="1_63jkc"]
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_e7sba"]
@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://di4u2ywk7efhm" path="res://src/test_weapon_inv.tres" id="3_b7onu"]
 [ext_resource type="AudioStream" uid="uid://bn6ncjhgcdlr0" path="res://assets/sfx/umph-47201.mp3" id="3_cwkal"]
 [ext_resource type="AudioStream" uid="uid://g6tn4jeh7kq4" path="res://assets/sfx/clean-fast-swooshaiff-14784.mp3" id="6_at6ld"]
+[ext_resource type="PackedScene" uid="uid://u1cafro3wogs" path="res://src/components/energy_container.tscn" id="7_65qp0"]
 [ext_resource type="PackedScene" uid="uid://22wskpfroyx6" path="res://src/UI/player_menu.tscn" id="8_ul1em"]
 [ext_resource type="PackedScene" uid="uid://bun6y0ddq8lx3" path="res://src/components/player_stats.tscn" id="9_10w05"]
 [ext_resource type="PackedScene" uid="uid://bq1h12ufhn45c" path="res://src/components/death_animator.tscn" id="13_a8vj6"]
@@ -20,6 +21,12 @@ bg_color = Color(0.6, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_01xff"]
 bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b5bx3"]
+bg_color = Color(0.541176, 0.462745, 0.25098, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cek4i"]
+bg_color = Color(0.752941, 0.721569, 0, 1)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tjo2q"]
 radius = 8.0
@@ -42,18 +49,7 @@ script = ExtResource("1_e7sba")
 inventory_data = ExtResource("2_ccsem")
 weapon_inventory_data = ExtResource("3_b7onu")
 
-[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("3_cwkal")
-max_polyphony = 10
-
-[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_65lng")
-
-[node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("6_at6ld")
-max_polyphony = 10
+[node name="PlayerStats" parent="." instance=ExtResource("9_10w05")]
 
 [node name="MotionController" parent="." instance=ExtResource("2_rqy15")]
 unique_name_in_owner = true
@@ -64,7 +60,8 @@ friction_mag = 3000.0
 [node name="HealthContainer" parent="." instance=ExtResource("2_2f0gs")]
 unique_name_in_owner = true
 
-[node name="PlayerStats" parent="." instance=ExtResource("9_10w05")]
+[node name="EnergyContainer" parent="." instance=ExtResource("7_65qp0")]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)
@@ -80,6 +77,17 @@ offset_right = 13.0
 offset_bottom = 19.0
 theme_override_styles/background = SubResource("StyleBoxFlat_hyc80")
 theme_override_styles/fill = SubResource("StyleBoxFlat_01xff")
+value = 100.0
+show_percentage = false
+
+[node name="EnergyBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -13.0
+offset_top = 20.0
+offset_right = 13.0
+offset_bottom = 23.0
+theme_override_styles/background = SubResource("StyleBoxFlat_b5bx3")
+theme_override_styles/fill = SubResource("StyleBoxFlat_cek4i")
 value = 100.0
 show_percentage = false
 
@@ -107,6 +115,19 @@ sound_effect = ExtResource("3_65lng")
 sound_offset = 0.2
 life_time = 1.5
 
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("3_cwkal")
+max_polyphony = 10
+
+[node name="DeathSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_65lng")
+
+[node name="SwingSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("6_at6ld")
+max_polyphony = 10
+
 [node name="HitEffectPlayer" parent="." node_paths=PackedStringArray("health_container", "sprite") instance=ExtResource("14_557uw")]
 health_container = NodePath("../HealthContainer")
 sprite = NodePath("../Sprite2D")
@@ -114,3 +135,4 @@ sprite = NodePath("../Sprite2D")
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="health_changed" from="HealthContainer" to="." method="_on_health_container_health_changed"]
 [connection signal="health_depleted" from="HealthContainer" to="." method="_on_health_container_health_depleted"]
+[connection signal="energy_changed" from="EnergyContainer" to="." method="_on_energy_container_energy_changed"]

@@ -12,7 +12,7 @@ region = Rect2(1568, 256, 32, 32)
 [resource]
 script = ExtResource("1_nqhkb")
 health_recover_value = 0
-stamina_recover_value = 50
+energy_recover_value = 50
 name = "Stamina Potion"
 description = "A refreshing drink filled with electrolytes"
 stackable = true
