@@ -29,8 +29,8 @@ func set_rarity_bonuses():
 	atk_ratio *= rarity_ratio
 	
 func set_stat_bonuses():
-	attack_speed = float(player_stats.dexterity / 10 * dex_ratio)
-	projectile_damage = float(player_stats.attack / 10 * atk_ratio)
+	attack_speed = float(player_stats.dexterity / 100 * dex_ratio)
+	projectile_damage = float(player_stats.power / 10 * atk_ratio)
 
 func basic_attack():
 	pass
