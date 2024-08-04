@@ -35,7 +35,7 @@ func basic_attack():
 
 func item_special():
 	var current_time = Time.get_ticks_msec() / 1000.0
-	if (current_time - time_of_last_special) < special_delay:
+	if (current_time - time_of_last_special) < 1/special_delay:
 		return
 	# subtract 30 mana
 	time_of_last_special = current_time

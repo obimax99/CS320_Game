@@ -5,25 +5,37 @@ extends Node
 signal player_leveled_up
 signal player_gained_xp
 
-@export var health: int
+
 
 # Player base stats
-@export var defense: int
-@export var hp_regen: int
-@export var attack: int
-@export var dexterity: int
-@export var speed: int
-@export var sp_regen: int
-@export var stamina: int
+@export var base_health: int
+@export var base_defense: int
+@export var base_hp_regen: int
+@export var base_power: int
+@export var base_dexterity: int
+@export var base_speed: int
+@export var base_energy: int
+@export var base_energy_regen: int
 
 #Player stat modifiers
-@export var defense_mod: int = 0
-@export var hp_regen_mod: int = 0
-@export var attack_mod: int = 0
-@export var dexterity_mod: int = 0
-@export var speed_mod: int = 0
-@export var sp_regen_mod: int = 0
-@export var stamina_mod: int = 0
+var health_mod: int = 0
+var defense_mod: int = 0
+var hp_regen_mod: int = 0
+var power_mod: int = 0
+var dexterity_mod: int = 0
+var speed_mod: int = 0
+var energy_mod: int = 0
+var energy_regen_mod: int = 0
+
+#Player total stat values
+var health: int
+var defense: int
+var hp_regen: int
+var power: int
+var dexterity: int
+var speed: int
+var energy: int
+var energy_regen: int
 
 var xp_level_thresholds: Array[int] = [100, 250, 500, 800, 1300, 2000, 2800, 3800, 5000]
 var max_level = len(xp_level_thresholds) + 1
@@ -34,15 +46,27 @@ var level: int = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Set initial player stat values when character is created
-	health = 100
-	defense = 10
-	hp_regen = 10
-	attack = 10
-	dexterity = 10
-	speed = 10
-	sp_regen = 10
-	stamina = 10
+	base_health = 100
+	base_hp_regen = 2
+	base_defense = 20
+	base_power = 20
+	base_dexterity = 100
+	base_speed = 200
+	base_energy = 100
+	base_energy_regen = 5
+	update_stat_totals()
 
+
+#Call anytime the base or bonus stat values are updated
+func update_stat_totals():
+	health = base_health + health_mod
+	hp_regen = base_hp_regen + hp_regen_mod
+	defense = base_defense + defense_mod
+	power = base_power + power_mod
+	dexterity = base_dexterity + dexterity_mod
+	speed = base_speed + speed_mod
+	energy = base_energy + energy_mod
+	energy_regen = base_energy_regen + energy_regen_mod
 
 #Call when enemy is killed or quest is completed
 func gain_xp(amount):
@@ -62,15 +86,17 @@ func checkLevelUp():
 
 # level up the character
 func levelUp():
-	health += 20
-	defense += 2
-	hp_regen += 2
-	attack += 2
-	dexterity += 2
-	speed += 2
-	sp_regen += 2
-	stamina += 2
+	base_health += 20
+	base_hp_regen += 2
+	base_defense += 2
+	base_power += 2
+	base_dexterity += 5
+	base_speed += 2
+	base_energy += 2
+	base_energy_regen += 2
 	level += 1
+	update_stat_totals()
 	var Player = get_parent()
 	Player.set_health()
+	Player.set_speed()
 	emit_signal("player_leveled_up")
