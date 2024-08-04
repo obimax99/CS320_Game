@@ -55,19 +55,19 @@ layout_mode = 2
 text = "Health "
 fit_content = true
 
-[node name="Defense" type="RichTextLabel" parent="Stats/VBoxContainer"]
-layout_mode = 2
-text = "Defense "
-fit_content = true
-
 [node name="HP Regen" type="RichTextLabel" parent="Stats/VBoxContainer"]
 layout_mode = 2
 text = "HP Regen"
 fit_content = true
 
-[node name="Attack" type="RichTextLabel" parent="Stats/VBoxContainer"]
+[node name="Defense" type="RichTextLabel" parent="Stats/VBoxContainer"]
 layout_mode = 2
-text = "Attack "
+text = "Defense "
+fit_content = true
+
+[node name="Power" type="RichTextLabel" parent="Stats/VBoxContainer"]
+layout_mode = 2
+text = "Power "
 fit_content = true
 
 [node name="Dexterity" type="RichTextLabel" parent="Stats/VBoxContainer"]
@@ -80,14 +80,14 @@ layout_mode = 2
 text = "Speed "
 fit_content = true
 
-[node name="SP Regen" type="RichTextLabel" parent="Stats/VBoxContainer"]
+[node name="Energy" type="RichTextLabel" parent="Stats/VBoxContainer"]
 layout_mode = 2
-text = "SP Regen "
+text = "Energy "
 fit_content = true
 
-[node name="Stamina" type="RichTextLabel" parent="Stats/VBoxContainer"]
+[node name="Energy Regen" type="RichTextLabel" parent="Stats/VBoxContainer"]
 layout_mode = 2
-text = "Stamina "
+text = "Energy Regen "
 fit_content = true
 
 [node name="xp" type="Panel" parent="."]

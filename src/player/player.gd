@@ -39,6 +39,8 @@ func set_health():
 	health_bar.max_value = health_container.max_health
 	health_bar.value = health_container.health
 
+func set_speed():
+	motion_controller.max_speed = player_stats.speed
 
 func _process(_delta):
 	# only move the player if we are the client controlling them

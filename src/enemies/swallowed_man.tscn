@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0flc8682bqiw"]
+[gd_scene load_steps=11 format=3 uid="uid://d0flc8682bqiw"]
 
 [ext_resource type="Texture2D" uid="uid://c2tihctaoj8bd" path="res://assets/inventory_items/32x32.png" id="1_dblfl"]
 [ext_resource type="Script" path="res://src/enemies/swallowed_man.gd" id="1_kyvox"]
@@ -16,10 +16,6 @@ region = Rect2(1792, 640, 32, 32)
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6ejrx"]
 radius = 9.0
 height = 32.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2181d"]
-radius = 4.0
-height = 13.3708
 
 [node name="swallowed_man" type="CharacterBody2D"]
 z_index = 1
@@ -45,23 +41,12 @@ shape = SubResource("CapsuleShape2D_6ejrx")
 
 [node name="HitBox" parent="." instance=ExtResource("5_gn7li")]
 collision_layer = 2
-damage = 2.0
+damage = 15.0
 response = 2
 
 [node name="BodyHitBox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(4, 1)
 shape = SubResource("CapsuleShape2D_6ejrx")
-
-[node name="HitBox2" parent="." instance=ExtResource("5_gn7li")]
-collision_layer = 2
-damage = 15.0
-response = 2
-
-[node name="SwordHitBox" type="CollisionShape2D" parent="HitBox2"]
-position = Vector2(-10, -4)
-rotation = -0.546103
-scale = Vector2(0.436957, 1.07207)
-shape = SubResource("CapsuleShape2D_2181d")
 
 [node name="HurtBox" parent="." node_paths=PackedStringArray("health_container", "motion_controller") instance=ExtResource("6_mw65k")]
 collision_layer = 0

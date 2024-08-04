@@ -3,11 +3,11 @@ extends CanvasLayer
 @onready var health_label : RichTextLabel = $Stats/VBoxContainer/Health
 @onready var defense_label : RichTextLabel = $Stats/VBoxContainer/Defense
 @onready var hp_regen_label : RichTextLabel = $"Stats/VBoxContainer/HP Regen"
-@onready var attack_label : RichTextLabel = $Stats/VBoxContainer/Attack
+@onready var power_label : RichTextLabel = $Stats/VBoxContainer/Power
 @onready var dexterity_label : RichTextLabel = $Stats/VBoxContainer/Dexterity
 @onready var speed_label : RichTextLabel = $Stats/VBoxContainer/Speed
-@onready var sp_regen_label : RichTextLabel = $"Stats/VBoxContainer/SP Regen"
-@onready var stamina_label : RichTextLabel = $Stats/VBoxContainer/Stamina
+@onready var energy_label : RichTextLabel = $Stats/VBoxContainer/Energy
+@onready var energy_regen_label : RichTextLabel = $"Stats/VBoxContainer/Energy Regen"
 @onready var panel = $Stats
 @onready var xp_label : RichTextLabel = $xp/VBoxContainer/xp
 
@@ -28,14 +28,14 @@ func render_xp():
 
 func render_stats():
 	var stats = $"../PlayerStats"
-	health_label.bbcode_text = "Health " + str(stats.health)
-	defense_label.bbcode_text = "Defense " + str(stats.defense) + " (" + ("+" if stats.defense_mod >= 0 else "") + str(stats.defense_mod) + ")" 
+	health_label.bbcode_text = "Max Health " + str(stats.health) + " (" + ("+" if stats.health_mod >= 0 else "") + str(stats.health_mod) + ")" 
 	hp_regen_label.bbcode_text = "HP Regen " + str(stats.hp_regen) + " (" + ("+" if stats.hp_regen_mod >= 0 else "") + str(stats.hp_regen_mod) + ")" 
-	attack_label.bbcode_text = "Attack " + str(stats.attack) + " (" + ("+" if stats.attack_mod >= 0 else "") + str(stats.attack_mod) + ")" 
+	defense_label.bbcode_text = "Defense " + str(stats.defense) + " (" + ("+" if stats.defense_mod >= 0 else "") + str(stats.defense_mod) + ")" 
+	power_label.bbcode_text = "Power " + str(stats.power) + " (" + ("+" if stats.power_mod >= 0 else "") + str(stats.power_mod) + ")" 
 	dexterity_label.bbcode_text = "Dexterity " + str(stats.dexterity) + " (" + ("+" if stats.dexterity_mod >= 0 else "") + str(stats.dexterity_mod) + ")" 
 	speed_label.bbcode_text = "Speed " + str(stats.speed) + " (" + ("+" if stats.speed_mod >= 0 else "") + str(stats.speed_mod) + ")" 
-	sp_regen_label.bbcode_text = "SP Regen " + str(stats.sp_regen) + " (" + ("+" if stats.sp_regen_mod >= 0 else "") + str(stats.sp_regen_mod) + ")" 
-	stamina_label.bbcode_text = "Stamina " + str(stats.stamina) + " (" + ("+" if stats.stamina_mod >= 0 else "") + str(stats.stamina_mod) + ")" 
+	energy_label.bbcode_text = "Energy " + str(stats.energy) + " (" + ("+" if stats.energy_mod >= 0 else "") + str(stats.energy_mod) + ")" 
+	energy_regen_label.bbcode_text = "Energy Regen " + str(stats.energy_regen) + " (" + ("+" if stats.energy_regen_mod >= 0 else "") + str(stats.energy_regen_mod) + ")" 
 	
 
 func get_player_level():
