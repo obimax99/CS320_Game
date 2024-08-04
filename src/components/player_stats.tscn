@@ -4,3 +4,8 @@
 
 [node name="PlayerStats" type="Node"]
 script = ExtResource("1_qw3st")
+
+[node name="RegenTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="RegenTimer" to="." method="_on_regen_timer_timeout"]

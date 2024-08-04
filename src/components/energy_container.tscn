@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://u1cafro3wogs"]
+
+[ext_resource type="Script" path="res://src/components/energy_container.gd" id="1_mrnfq"]
+
+[node name="EnergyContainer" type="Node"]
+script = ExtResource("1_mrnfq")
+
+[connection signal="energy_changed" from="." to="." method="_on_energy_changed"]

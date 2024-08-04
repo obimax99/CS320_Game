@@ -8,6 +8,7 @@ var projectile_damage: float = 10
 @export_range(5, 1000, 1) var projectile_range: float = 500
 @export_enum("line", "swing") var projectile_type: String = "line"
 @onready var player_stats = $"../PlayerStats"
+@onready var player_energy_container = $"../EnergyContainer"
 @onready var projectile_spawner = $ProjectileSpawner
 var time_of_last_attack: float = 0.0
 var rarity_ratio: float = 1
@@ -31,6 +32,9 @@ func set_rarity_bonuses():
 func set_stat_bonuses():
 	attack_speed = float(player_stats.dexterity / 100 * dex_ratio)
 	projectile_damage = float(player_stats.power / 10 * atk_ratio)
+	
+func spend_energy(amount):
+	player_energy_container.deplete_energy(amount)
 
 func basic_attack():
 	pass
