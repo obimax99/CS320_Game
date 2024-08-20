@@ -33,8 +33,8 @@ func set_stat_bonuses():
 	attack_speed = float(player_stats.dexterity / 100 * dex_ratio)
 	projectile_damage = float(player_stats.power / 10 * atk_ratio)
 	
-func spend_energy(amount):
-	player_energy_container.deplete_energy(amount)
+func spend_energy(amount) -> bool:
+	return player_energy_container.deplete_energy(amount)
 
 func basic_attack():
 	pass
