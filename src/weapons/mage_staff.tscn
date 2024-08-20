@@ -6,9 +6,13 @@
 
 [node name="MageStaff" type="Node2D"]
 script = ExtResource("1_3soqx")
+weapon_rarity = null
 projectile_speed = 350.0
 projectile_range = 750.0
+projectile_type = null
+base_dex_ratio = null
 base_atk_ratio = 7.0
+special_energy_cost = 25.0
 
 [node name="ProjectileSpawner" parent="." instance=ExtResource("2_tm6gy")]
 projectile = ExtResource("3_oekrr")

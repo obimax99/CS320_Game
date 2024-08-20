@@ -26,9 +26,10 @@ func basic_attack():
 	projectile_spawner.spawn_projectile(direction)
 	
 func item_special():
-	# subtract mana
 	var current_time = Time.get_ticks_msec() / 1000.0
 	if (current_time - time_of_last_special) < special_delay:
+		return
+	if (!spend_energy(special_energy_cost)):
 		return
 	time_of_last_special = current_time
 	var dir: Vector2 = (get_global_mouse_position() - global_position).normalized().rotated(deg_to_rad(-1*(special_angle/2)))

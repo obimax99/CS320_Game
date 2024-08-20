@@ -27,7 +27,8 @@ func basic_attack():
 func item_special():
 	if aoe_explosion == true:
 		return
-	# subtract mana
+	if (!spend_energy(special_energy_cost)):
+		return
 	aoe_explosion = true;
 	projectile_spawner.projectile_aoe_explosion = aoe_explosion
 	print("aoe on!")
