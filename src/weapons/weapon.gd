@@ -16,6 +16,7 @@ var rarity_ratio: float = 1
 @export var base_atk_ratio: float = 1.0
 var dex_ratio: float
 var atk_ratio: float
+@export var special_energy_cost: float = 5
 
 func _ready():
 	pass
