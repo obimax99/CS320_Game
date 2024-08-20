@@ -37,7 +37,7 @@ func item_special():
 	var current_time = Time.get_ticks_msec() / 1000.0
 	if (current_time - time_of_last_special) < 1/special_delay:
 		return
-	if (!spend_energy(30)):
+	if (!spend_energy(special_energy_cost)):
 		return
 	time_of_last_special = current_time
 	projectile_spawner.projectile_damage = special_projectile_damage
