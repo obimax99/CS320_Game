@@ -34,7 +34,7 @@ func render_stats():
 	power_label.bbcode_text = "Power " + str(stats.power) + " (" + ("+" if stats.power_mod >= 0 else "") + str(stats.power_mod) + ")" 
 	dexterity_label.bbcode_text = "Dexterity " + str(stats.dexterity) + " (" + ("+" if stats.dexterity_mod >= 0 else "") + str(stats.dexterity_mod) + ")" 
 	speed_label.bbcode_text = "Speed " + str(stats.speed) + " (" + ("+" if stats.speed_mod >= 0 else "") + str(stats.speed_mod) + ")" 
-	energy_label.bbcode_text = "Energy " + str(stats.energy) + " (" + ("+" if stats.energy_mod >= 0 else "") + str(stats.energy_mod) + ")" 
+	energy_label.bbcode_text = "Max Energy " + str(stats.energy) + " (" + ("+" if stats.energy_mod >= 0 else "") + str(stats.energy_mod) + ")" 
 	energy_regen_label.bbcode_text = "Energy Regen " + str(stats.energy_regen) + " (" + ("+" if stats.energy_regen_mod >= 0 else "") + str(stats.energy_regen_mod) + ")" 
 	
 

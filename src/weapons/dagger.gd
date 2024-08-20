@@ -14,7 +14,7 @@ func _ready():
 	set_base_values()
 	set_rarity_bonuses()
 	set_stat_bonuses()
-	special_projectile_damage = projectile_damage * 2
+	special_projectile_damage = projectile_damage * 3
 	special_delay = attack_speed / 2
 	
 	projectile_spawner.set_universal_projectile_attributes(projectile_damage, 
@@ -37,7 +37,8 @@ func item_special():
 	var current_time = Time.get_ticks_msec() / 1000.0
 	if (current_time - time_of_last_special) < 1/special_delay:
 		return
-	spend_energy(30)
+	if (!spend_energy(30)):
+		return
 	time_of_last_special = current_time
 	projectile_spawner.projectile_damage = special_projectile_damage
 	projectile_spawner.projectile_range = special_projectile_range

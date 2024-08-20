@@ -12,7 +12,7 @@ region = Rect2(320, 256, 32, 32)
 [resource]
 script = ExtResource("1_leyiu")
 health_recover_value = 50
-stamina_recover_value = 0
+energy_recover_value = 0
 name = "Health Potion"
 description = "Smells like strawberries"
 stackable = true
