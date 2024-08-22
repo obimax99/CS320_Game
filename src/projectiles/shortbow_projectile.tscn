@@ -23,7 +23,7 @@ texture = SubResource("AtlasTexture_kwl46")
 
 [node name="HitBox" parent="." instance=ExtResource("2_oq4eo")]
 rotation = 0.785398
-scale = Vector2(1, 1)
+damage_type = "stab"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 rotation = 0.785398

@@ -69,6 +69,7 @@ collision_layer = 2
 damage = 15.0
 response = 2
 disable_time = 0.6
+damage_type = "stab"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -8)

@@ -14,6 +14,7 @@ script = ExtResource("1_rt430")
 texture = ExtResource("2_jh0mu")
 
 [node name="HitBox" parent="." instance=ExtResource("3_54mb3")]
+damage_type = "fire"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_58o1n")

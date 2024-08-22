@@ -56,6 +56,7 @@ shape = SubResource("CapsuleShape2D_wb35t")
 collision_layer = 2
 damage = 25.0
 response = 2
+damage_type = "smash"
 
 [node name="HeadHitBoxShape2D" type="CollisionShape2D" parent="HeadHitBox"]
 unique_name_in_owner = true
