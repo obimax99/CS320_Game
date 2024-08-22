@@ -13,11 +13,12 @@ var is_poisoned: bool = false
 @onready var knockback_component: Node = $KnockbackComponent
 
 
+
 func _on_area_entered(area):
 	if not (area is HitBox):
 		return
 	if health_container != null:
-		health_container.damage(area.damage)
+		health_container.damage(area.damage, area.damage_type)
 		
 	#effects
 	if area.poison_component.effect_active == true:
@@ -32,6 +33,7 @@ func _on_area_entered(area):
 		resolve_knockback(area)
 	
 	emit_signal("hurt", area)
+	
 
 func resolve_poison():
 	if (health_container == null) || (is_poisoned == true):
@@ -44,7 +46,7 @@ func resolve_poison():
 	var curr_time: float = Time.get_ticks_msec() / 1000.0
 	var total_ticks: float = floor(poison_component.duration)
 	for i in total_ticks:
-		health_container.damage(damage_per_second)
+		health_container.damage(damage_per_second, "death")
 		#print("Did one tick of damage! Current Health = ", health_container.get_health())
 		await get_tree().create_timer(1.0).timeout
 	is_poisoned = false

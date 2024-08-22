@@ -43,6 +43,7 @@ shape = SubResource("CapsuleShape2D_6ejrx")
 collision_layer = 2
 damage = 15.0
 response = 2
+damage_type = "stab"
 
 [node name="BodyHitBox" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(4, 1)

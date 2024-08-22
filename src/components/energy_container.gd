@@ -31,6 +31,6 @@ func energize(amount):
 
 
 func _on_energy_changed(_amount):
-	print("energy: ", energy)
+	#print("energy: ", energy)
 	if is_zero_approx(energy):
 		emit_signal("energy_depleted")

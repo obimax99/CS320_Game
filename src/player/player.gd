@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name Player
 
 signal toggle_inventory()
+# DEBUG
+var invincibility: bool = false
+# END DEBUG
 
 var sync_pos := Vector2.ZERO
 var mult_sync: MultiplayerSynchronizer
@@ -35,7 +38,8 @@ func _ready():
 		change_weapon(starting_item_data_weapon)
 		$Camera2D.make_current()
 
-func set_health():
+func set_health(): # and defense!
+	health_container.defense = player_stats.defense
 	health_container.max_health = player_stats.health
 	health_container.health = player_stats.health
 	health_bar.max_value = health_container.max_health
@@ -56,6 +60,8 @@ func _process(_delta):
 		sync_pos = global_position
 		move(_delta)
 		# check inventory toggle
+		if Input.is_action_just_pressed("toggle_invincibility"):
+			toggle_invincibility()
 		if Input.is_action_just_pressed("toggle_inventory"):
 			toggle_inventory.emit()
 		if Input.is_action_just_pressed("interact"):
@@ -86,6 +92,23 @@ func move(_delta):
 	move_and_slide()
 	
 
+func toggle_invincibility():
+	print("invincibility toggled")
+	if (!invincibility):
+		health_container.resist_dict["fire"] = 1000
+		health_container.resist_dict["ice"] = 1000
+		health_container.resist_dict["life"] = 1000
+		health_container.resist_dict["death"] = 1000
+		health_container.resist_dict["smash"] = 1000
+		health_container.resist_dict["stab"] = 1000
+	else:
+		health_container.resist_dict["fire"] = 0
+		health_container.resist_dict["ice"] = 0
+		health_container.resist_dict["life"] = 0
+		health_container.resist_dict["death"] = 0
+		health_container.resist_dict["smash"] = 0
+		health_container.resist_dict["stab"] = 0
+	invincibility = !invincibility
 
 func _on_health_container_health_changed(_amount):
 	health_bar.value = health_container.health
@@ -95,8 +118,8 @@ func _on_health_container_health_changed(_amount):
 		
 func _on_energy_container_energy_changed(_amount):
 	energy_bar.value = energy_container.energy
-	if _amount < 0:
-		print("used energy!")
+	#if _amount < 0:
+		#print("used energy!")
 
 
 func _on_health_container_health_depleted():
