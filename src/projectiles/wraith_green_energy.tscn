@@ -20,6 +20,7 @@ texture = SubResource("AtlasTexture_m51op")
 
 [node name="HitBox" parent="." instance=ExtResource("3_e0yme")]
 collision_layer = 2
+damage_type = "death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_0gd1q")

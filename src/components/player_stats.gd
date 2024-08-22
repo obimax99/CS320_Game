@@ -108,4 +108,3 @@ func _on_regen_timer_timeout():
 	var Player = get_parent()
 	Player.heal(hp_regen)
 	Player.energize(energy_regen)
-	print("hi")

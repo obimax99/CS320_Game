@@ -26,6 +26,7 @@ texture = ExtResource("2_1e1ai")
 [node name="HitBox" parent="." instance=ExtResource("4_ak5hy")]
 collision_layer = 2
 damage = 20.0
+damage_type = "death"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_but76")
