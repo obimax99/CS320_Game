@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://ldya24kqafli"]
+[gd_scene load_steps=27 format=3 uid="uid://ldya24kqafli"]
 
 [ext_resource type="Texture2D" uid="uid://1uob3lhs3b7i" path="res://assets/player/warrior.png" id="1_63jkc"]
 [ext_resource type="Script" path="res://src/player/player.gd" id="1_e7sba"]
@@ -7,9 +7,13 @@
 [ext_resource type="PackedScene" uid="uid://dr6f73vjifb6k" path="res://src/components/motion_controller.tscn" id="2_rqy15"]
 [ext_resource type="PackedScene" uid="uid://cnmy034x62h8s" path="res://src/components/hurt_box.tscn" id="3_5ej63"]
 [ext_resource type="AudioStream" uid="uid://d4ltrmmxe2fy3" path="res://assets/sfx/male-scream-in-fear-123079.mp3" id="3_65lng"]
-[ext_resource type="Resource" uid="uid://di4u2ywk7efhm" path="res://src/test_weapon_inv.tres" id="3_b7onu"]
 [ext_resource type="AudioStream" uid="uid://bn6ncjhgcdlr0" path="res://assets/sfx/umph-47201.mp3" id="3_cwkal"]
+[ext_resource type="Resource" uid="uid://bsds0fg82wsi2" path="res://src/starting_player_weapon_inventory.tres" id="3_ktsxt"]
+[ext_resource type="Resource" uid="uid://cpgskabofw45a" path="res://src/starting_player_offhand_inventory.tres" id="4_37tly"]
+[ext_resource type="Resource" uid="uid://c16ipkcnm1te" path="res://src/starting_player_consumable_inventory.tres" id="5_i7ch5"]
 [ext_resource type="AudioStream" uid="uid://g6tn4jeh7kq4" path="res://assets/sfx/clean-fast-swooshaiff-14784.mp3" id="6_at6ld"]
+[ext_resource type="Resource" uid="uid://brbm7trgo24gh" path="res://src/starting_player_armor_inventory.tres" id="6_wvykc"]
+[ext_resource type="Resource" uid="uid://b2egnvyxafoj8" path="res://src/starting_player_trinket_inventory.tres" id="7_56uyg"]
 [ext_resource type="PackedScene" uid="uid://u1cafro3wogs" path="res://src/components/energy_container.tscn" id="7_65qp0"]
 [ext_resource type="PackedScene" uid="uid://22wskpfroyx6" path="res://src/UI/player_menu.tscn" id="8_ul1em"]
 [ext_resource type="PackedScene" uid="uid://bun6y0ddq8lx3" path="res://src/components/player_stats.tscn" id="9_10w05"]
@@ -47,7 +51,11 @@ collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_e7sba")
 inventory_data = ExtResource("2_ccsem")
-weapon_inventory_data = ExtResource("3_b7onu")
+weapon_inventory_data = ExtResource("3_ktsxt")
+offhand_inventory_data = ExtResource("4_37tly")
+consumable_inventory_data = ExtResource("5_i7ch5")
+armor_inventory_data = ExtResource("6_wvykc")
+trinket_inventory_data = ExtResource("7_56uyg")
 
 [node name="PlayerStats" parent="." instance=ExtResource("9_10w05")]
 

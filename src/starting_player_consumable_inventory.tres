@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="InventoryDataConsumable" load_steps=9 format=3 uid="uid://c16ipkcnm1te"]
+
+[ext_resource type="Script" path="res://src/inventory/inventory_data_consumable.gd" id="1_0trch"]
+[ext_resource type="Resource" uid="uid://caf84bc2rqsw8" path="res://src/items/consumables/health_potion.tres" id="2_t0dhf"]
+[ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_kk38l"]
+[ext_resource type="Resource" uid="uid://32rhd8pg318" path="res://src/items/consumables/monsters_energy.tres" id="4_8qjwo"]
+[ext_resource type="Resource" uid="uid://cnm6cri145ubb" path="res://src/items/consumables/stamina_potion.tres" id="5_ow601"]
+
+[sub_resource type="Resource" id="Resource_5suqv"]
+script = ExtResource("3_kk38l")
+item_data = ExtResource("2_t0dhf")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_81p35"]
+script = ExtResource("3_kk38l")
+item_data = ExtResource("4_8qjwo")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_muad0"]
+script = ExtResource("3_kk38l")
+item_data = ExtResource("5_ow601")
+quantity = 1
+
+[resource]
+script = ExtResource("1_0trch")
+slot_datas = Array[ExtResource("3_kk38l")]([SubResource("Resource_5suqv"), SubResource("Resource_81p35"), SubResource("Resource_muad0"), null])

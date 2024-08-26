@@ -15,11 +15,18 @@ var mult_sync: MultiplayerSynchronizer
 @onready var energy_container: EnergyContainer = %EnergyContainer
 @onready var motion_controller: MotionController = %MotionController
 
+@export_category("Inventories")
 @export var inventory_data: InventoryData
 @export var weapon_inventory_data: InventoryDataWeapon
+@export var offhand_inventory_data: InventoryDataWeapon
+@export var consumable_inventory_data: InventoryDataConsumable
+@export var armor_inventory_data: InventoryDataArmor
+@export var trinket_inventory_data: InventoryDataTrinket
 var equipped_weapon: Weapon
 var starting_item_data_weapon: ItemDataWeapon
 const EQUIP_INVENTORY_WEAPON = 0
+var holding_left_click: bool = false
+var holding_right_click: bool = false
 
 @onready var player_stats = $PlayerStats
 
@@ -32,7 +39,7 @@ func _ready():
 		# exported inventories: would likely start based on class selection
 		# based on class, select starting weapon
 		# for now, using a default starting_weapon resource of dagger
-		starting_item_data_weapon = preload("res://src/items/dagger1.tres")
+		starting_item_data_weapon = preload("res://src/items/daggers/dagger1.tres")
 		# again, this is based off of the test_weapon_inventory.tres having
 		# a dagger. 
 		change_weapon(starting_item_data_weapon)
@@ -66,15 +73,44 @@ func _process(_delta):
 			toggle_inventory.emit()
 		if Input.is_action_just_pressed("interact"):
 			interact()
-		if Input.is_action_pressed("basic_attack") and equipped_weapon:
+		if holding_left_click:
 			equipped_weapon.basic_attack()
-			#%SwingSound.play(0.2)
-		if Input.is_action_pressed("item_special") and equipped_weapon:
+		if holding_right_click:
 			equipped_weapon.item_special()
+		#if Input.is_action_pressed("basic_attack") and equipped_weapon:
+			#equipped_weapon.basic_attack()
+			##%SwingSound.play(0.2)
+		#if Input.is_action_pressed("item_special") and equipped_weapon:
+			#equipped_weapon.item_special()
 	else:
 		global_position = global_position.lerp(sync_pos, 0.4)
 
+func _unhandled_input(event):
+	if not mult_sync.get_multiplayer_authority() == multiplayer.get_unique_id():
+		return
+	if not equipped_weapon:
+		return
+		
+	if event.is_action_pressed("basic_attack"):
+		holding_left_click = true
+	elif event.is_action_released("basic_attack"):
+		holding_left_click = false
+	elif event.is_action_pressed("item_special"):
+		holding_right_click = true
+	elif event.is_action_released("item_special"):
+		holding_right_click = false
 
+func _unhandled_key_input(event):
+	if event.is_action_pressed("swap_weapons"):
+		var temp_grabbed_slot: SlotData = weapon_inventory_data.grab_slot_data(0)
+		if (temp_grabbed_slot == null):
+			temp_grabbed_slot = offhand_inventory_data.grab_slot_data(0)
+		else:
+			temp_grabbed_slot = offhand_inventory_data.drop_slot_data(temp_grabbed_slot, 0)
+		if (temp_grabbed_slot != null):
+			weapon_inventory_data.drop_slot_data(temp_grabbed_slot, 0)
+		print("swapped")
+		
 func move(_delta):
 	
 	# get acceleration direction
