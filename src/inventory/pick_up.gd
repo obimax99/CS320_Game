@@ -11,6 +11,9 @@ func _physics_process(delta):
 	sprite_2d.rotate(delta)
 
 func _on_area_2d_body_entered(body):
-	if body.inventory_data.pick_up_slot_data(slot_data):
+	if slot_data.item_data is ItemDataConsumable:
+		if body.consumable_inventory_data.pick_up_slot_data(slot_data):
+			queue_free()
+	elif body.inventory_data.pick_up_slot_data(slot_data):
 		queue_free()
 		

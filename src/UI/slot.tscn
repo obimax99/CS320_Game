@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://drbl531y5n67e"]
+[gd_scene load_steps=14 format=3 uid="uid://drbl531y5n67e"]
 
 [ext_resource type="Script" path="res://src/UI/slot.gd" id="1_kqqaa"]
 
@@ -29,6 +29,25 @@ region = Rect2(1056, 1664, 32, 32)
 atlas = SubResource("CompressedTexture2D_5d6jf")
 region = Rect2(3360, 32, 32, 32)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_oyw34"]
+load_path = "res://.godot/imported/32x32.png-e72894ccb86f36ffcb11d38e5757662e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tonqd"]
+atlas = SubResource("CompressedTexture2D_oyw34")
+region = Rect2(1120, 1856, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ofm5y"]
+atlas = SubResource("CompressedTexture2D_oyw34")
+region = Rect2(2272, 1984, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xbu5"]
+atlas = SubResource("CompressedTexture2D_oyw34")
+region = Rect2(736, 2016, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0mff"]
+atlas = SubResource("CompressedTexture2D_oyw34")
+region = Rect2(3808, 1984, 32, 32)
+
 [node name="Slot" type="PanelContainer"]
 custom_minimum_size = Vector2(64, 64)
 offset_right = 40.0
@@ -40,6 +59,10 @@ rarity_3_texture = SubResource("AtlasTexture_axtvw")
 rarity_4_texture = SubResource("AtlasTexture_83i5u")
 rarity_5_texture = SubResource("AtlasTexture_nem77")
 rarity_6_texture = SubResource("AtlasTexture_l2ylu")
+weapon_slot_texture = SubResource("AtlasTexture_tonqd")
+consumable_slot_texture = SubResource("AtlasTexture_ofm5y")
+armor_slot_texture = SubResource("AtlasTexture_4xbu5")
+trinket_slot_texture = SubResource("AtlasTexture_c0mff")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

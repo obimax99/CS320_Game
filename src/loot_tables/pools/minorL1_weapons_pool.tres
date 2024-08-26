@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Pool" load_steps=15 format=3 uid="uid://m5ioq3jbrqp"]
 
-[ext_resource type="Resource" uid="uid://cv41b4o3k80ve" path="res://src/items/dagger1.tres" id="1_mwg86"]
+[ext_resource type="Resource" uid="uid://cv41b4o3k80ve" path="res://src/items/daggers/dagger1.tres" id="1_mwg86"]
 [ext_resource type="Script" path="res://src/loot_tables/entries/entry.gd" id="2_t18ym"]
-[ext_resource type="Resource" uid="uid://crf0upx26nnhn" path="res://src/items/dagger2.tres" id="3_kwgtc"]
-[ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/mage_staff1.tres" id="4_ismyk"]
-[ext_resource type="Resource" uid="uid://b2ajho3iyapir" path="res://src/items/mage_staff2.tres" id="5_jbbc3"]
-[ext_resource type="Resource" uid="uid://ndjx15w37c68" path="res://src/items/shortbow1.tres" id="6_bfa52"]
+[ext_resource type="Resource" uid="uid://crf0upx26nnhn" path="res://src/items/daggers/dagger2.tres" id="3_kwgtc"]
+[ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/fire_staffs/mage_staff1.tres" id="4_ismyk"]
+[ext_resource type="Resource" uid="uid://b2ajho3iyapir" path="res://src/items/fire_staffs/mage_staff2.tres" id="5_jbbc3"]
+[ext_resource type="Resource" uid="uid://ndjx15w37c68" path="res://src/items/shortbows/shortbow1.tres" id="6_bfa52"]
 [ext_resource type="Script" path="res://src/loot_tables/pools/pool.gd" id="6_oqakv"]
-[ext_resource type="Resource" uid="uid://yeois14spn3d" path="res://src/items/shortbow2.tres" id="7_a63qf"]
+[ext_resource type="Resource" uid="uid://yeois14spn3d" path="res://src/items/shortbows/shortbow2.tres" id="7_a63qf"]
 
 [sub_resource type="Resource" id="Resource_hwu5o"]
 script = ExtResource("2_t18ym")

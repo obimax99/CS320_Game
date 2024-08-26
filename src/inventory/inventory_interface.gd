@@ -6,7 +6,12 @@ var grabbed_slot_data: SlotData
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
 @onready var grabbed_slot: PanelContainer = $GrabbedSlot
-@onready var weapon_inventory = $WeaponInventory
+@onready var weapon_inventory: PanelContainer = $"../WeaponInventory"
+@onready var offhand_inventory: PanelContainer = $OffhandInventory
+@onready var consumable_inventory: PanelContainer = $"../ConsumableInventory"
+@onready var armor_inventory: PanelContainer = $ArmorInventory
+@onready var trinket_inventory: PanelContainer = $TrinketInventory
+
 
 
 func _physics_process(delta):
@@ -16,10 +21,26 @@ func _physics_process(delta):
 func set_player_inventory_data(inventory_data: InventoryData):
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	player_inventory.set_inventory_data(inventory_data)
-	
+
 func set_weapon_inventory_data(inventory_data: InventoryData):
 	inventory_data.inventory_interact.connect(on_inventory_interact)
 	weapon_inventory.set_inventory_data(inventory_data)
+
+func set_offhand_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	offhand_inventory.set_inventory_data(inventory_data)
+
+func set_consumable_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	consumable_inventory.set_inventory_data(inventory_data)
+
+func set_armor_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	armor_inventory.set_inventory_data(inventory_data)
+
+func set_trinket_inventory_data(inventory_data: InventoryData):
+	inventory_data.inventory_interact.connect(on_inventory_interact)
+	trinket_inventory.set_inventory_data(inventory_data)
 
 func on_inventory_interact(inventory_data: InventoryData, 
 		index: int, button: int):
@@ -52,8 +73,7 @@ func _on_gui_input(event):
 	if event is InputEventMouseButton \
 			and event.is_pressed() \
 			and grabbed_slot_data:
-		# accept_event()
-		# above is useless until we refactor all Input code to use unhandled
+		accept_event()
 		
 		match event.button_index:
 			MOUSE_BUTTON_LEFT:
@@ -65,6 +85,8 @@ func _on_gui_input(event):
 					grabbed_slot_data = null
 		
 		update_grabbed_slot()
+		
+
 
 
 func _on_visibility_changed():
