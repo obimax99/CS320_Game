@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Pool" load_steps=9 format=3 uid="uid://bic01bvwi2d5j"]
 
 [ext_resource type="Script" path="res://src/loot_tables/pools/pool.gd" id="1_1htlg"]
-[ext_resource type="Resource" uid="uid://caf84bc2rqsw8" path="res://src/items/health_potion.tres" id="1_aqlho"]
+[ext_resource type="Resource" uid="uid://caf84bc2rqsw8" path="res://src/items/consumables/health_potion.tres" id="1_aqlho"]
 [ext_resource type="Script" path="res://src/loot_tables/entries/entry.gd" id="2_76fa0"]
-[ext_resource type="Resource" uid="uid://cnm6cri145ubb" path="res://src/items/stamina_potion.tres" id="3_jkwv2"]
-[ext_resource type="Resource" uid="uid://32rhd8pg318" path="res://src/items/monsters_energy.tres" id="4_21yqe"]
+[ext_resource type="Resource" uid="uid://cnm6cri145ubb" path="res://src/items/consumables/stamina_potion.tres" id="3_jkwv2"]
+[ext_resource type="Resource" uid="uid://32rhd8pg318" path="res://src/items/consumables/monsters_energy.tres" id="4_21yqe"]
 
 [sub_resource type="Resource" id="Resource_nuods"]
 script = ExtResource("2_76fa0")

@@ -1,12 +1,21 @@
-[gd_scene load_steps=8 format=3 uid="uid://bcpd2g41uikew"]
+[gd_scene load_steps=10 format=3 uid="uid://bcpd2g41uikew"]
 
 [ext_resource type="Script" path="res://src/main.gd" id="1_8asym"]
 [ext_resource type="PackedScene" uid="uid://dgi8vrclbu3ch" path="res://src/places/meadow.tscn" id="1_y2l12"]
 [ext_resource type="PackedScene" uid="uid://bs0jf15i4nj8u" path="res://src/UI/inventory.tscn" id="3_bj3aa"]
 [ext_resource type="Script" path="res://src/inventory/inventory_interface.gd" id="4_ri52f"]
+[ext_resource type="PackedScene" uid="uid://b37ov6gbryqb4" path="res://src/UI/inventory_consumable.tscn" id="6_jvsnr"]
 [ext_resource type="PackedScene" uid="uid://drbl531y5n67e" path="res://src/UI/slot.tscn" id="6_sdpfa"]
 [ext_resource type="AudioStream" uid="uid://bsvotcoegjmef" path="res://assets/music/MainThemeLoop.wav" id="7_o7b8c"]
-[ext_resource type="PackedScene" uid="uid://cao0gknxyrwn1" path="res://src/UI/hot_bar_inventory.tscn" id="10_3kks7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67rkk"]
+bg_color = Color(0, 0, 0, 0.270588)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f64o2"]
+line_spacing = 1.0
+font_size = 58
+font_color = Color(1, 0.337255, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_8asym")
@@ -21,7 +30,6 @@ spawn_limit = 32
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="InventoryInterface" type="Control" parent="UI"]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,20 +39,6 @@ grow_vertical = 2
 size_flags_horizontal = 8
 script = ExtResource("4_ri52f")
 
-[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 50.0
-offset_bottom = 50.0
-
-[node name="WeaponInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
-layout_mode = 0
-offset_left = 450.0
-offset_top = 10.0
-offset_right = 490.0
-offset_bottom = 50.0
-
 [node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("6_sdpfa")]
 visible = false
 modulate = Color(1, 1, 1, 0.490196)
@@ -53,11 +47,70 @@ layout_mode = 0
 offset_right = 64.0
 offset_bottom = 64.0
 
-[node name="HotBarInventory" parent="UI" instance=ExtResource("10_3kks7")]
+[node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
+layout_mode = 0
+offset_left = 202.0
+offset_top = 10.0
+offset_right = 242.0
+offset_bottom = 50.0
+
+[node name="OffhandInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 10.0
+offset_right = 130.0
+offset_bottom = 50.0
+item_grid_columns = 1
+inv_h_separation = 16
+inv_v_separation = 16
+
+[node name="ArmorInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 90.0
+offset_right = 130.0
+offset_bottom = 130.0
+item_grid_columns = 1
+inv_h_separation = 16
+inv_v_separation = 16
+
+[node name="TrinketInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 170.0
+offset_right = 130.0
+offset_bottom = 210.0
+item_grid_columns = 1
+inv_h_separation = 16
+inv_v_separation = 16
+
+[node name="WeaponInventory" parent="UI" instance=ExtResource("3_bj3aa")]
 offset_left = 10.0
 offset_top = 10.0
-offset_right = 294.0
-offset_bottom = 82.0
+offset_right = 50.0
+offset_bottom = 50.0
+item_grid_columns = 1
+inv_h_separation = 16
+inv_v_separation = 16
+
+[node name="ConsumableInventory" parent="UI" instance=ExtResource("6_jvsnr")]
+offset_left = 10.0
+offset_top = 90.0
+offset_right = 50.0
+offset_bottom = 130.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_67rkk")
+inv_h_separation = 16
+
+[node name="QuickUseLabels" type="Label" parent="UI"]
+offset_left = 10.0
+offset_top = 88.0
+offset_right = 50.0
+offset_bottom = 488.0
+text = "1
+2
+3
+4"
+label_settings = SubResource("LabelSettings_f64o2")
 
 [node name="Players" type="Node" parent="."]
 

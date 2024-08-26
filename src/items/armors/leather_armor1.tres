@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="ItemDataArmor" load_steps=4 format=3 uid="uid://cdc2kavjeshdy"]
+
+[ext_resource type="Script" path="res://src/inventory/item_data_armor.gd" id="1_npt71"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5d6jf"]
+load_path = "res://.godot/imported/32x32.png-e72894ccb86f36ffcb11d38e5757662e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm6qk"]
+atlas = SubResource("CompressedTexture2D_5d6jf")
+region = Rect2(1280, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_npt71")
+defense = 10.0
+armor_rarity = 1
+name = "Leather Armor"
+description = "some armor made from cow leather. yum!"
+stackable = false
+texture = SubResource("AtlasTexture_nm6qk")

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryDataTrinket" load_steps=7 format=3 uid="uid://b2egnvyxafoj8"]
+
+[ext_resource type="Script" path="res://src/inventory/inventory_data_trinket.gd" id="1_uu4ci"]
+[ext_resource type="Resource" uid="uid://cy774phf1g7r0" path="res://src/items/trinkets/fire_trinket1.tres" id="2_evul2"]
+[ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_6r5o5"]
+[ext_resource type="Resource" uid="uid://dcghsffy7kfvd" path="res://src/items/trinkets/fire_trinket2.tres" id="4_4fswv"]
+
+[sub_resource type="Resource" id="Resource_4y6mo"]
+script = ExtResource("3_6r5o5")
+item_data = ExtResource("2_evul2")
+quantity = 1
+
+[sub_resource type="Resource" id="Resource_cqdab"]
+script = ExtResource("3_6r5o5")
+item_data = ExtResource("4_4fswv")
+quantity = 1
+
+[resource]
+script = ExtResource("1_uu4ci")
+slot_datas = Array[ExtResource("3_6r5o5")]([SubResource("Resource_4y6mo"), SubResource("Resource_cqdab"), null])

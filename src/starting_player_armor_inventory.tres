@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="InventoryDataArmor" load_steps=5 format=3 uid="uid://brbm7trgo24gh"]
+
+[ext_resource type="Script" path="res://src/inventory/inventory_data_armor.gd" id="1_d8u5m"]
+[ext_resource type="Resource" uid="uid://cdc2kavjeshdy" path="res://src/items/armors/leather_armor1.tres" id="2_n2hxi"]
+[ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_nqsth"]
+
+[sub_resource type="Resource" id="Resource_ufpr4"]
+script = ExtResource("3_nqsth")
+item_data = ExtResource("2_n2hxi")
+quantity = 1
+
+[resource]
+script = ExtResource("1_d8u5m")
+slot_datas = Array[ExtResource("3_nqsth")]([SubResource("Resource_ufpr4")])

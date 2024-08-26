@@ -37,3 +37,5 @@ func grab_slot_data(index: int) -> SlotData:
 	else:
 		return null
 
+func get_inventory_type() -> String:
+	return "InventoryDataWeapon"

@@ -3,7 +3,7 @@
 [ext_resource type="Resource" uid="uid://cg52v4jt4ibuf" path="res://src/loot_tables/pools/bossL1_weapons_pool.tres" id="1_1xydn"]
 [ext_resource type="Script" path="res://src/loot_tables/loot_table.gd" id="1_djkuw"]
 [ext_resource type="Resource" uid="uid://j4v7fyr645vp" path="res://src/loot_tables/pools/bossL1_consumables_pool.tres" id="2_r7eme"]
-[ext_resource type="Resource" uid="uid://bjkqho8cocr2t" path="res://src/items/vole_bone_shortbow.tres" id="3_o1ird"]
+[ext_resource type="Resource" uid="uid://bjkqho8cocr2t" path="res://src/items/shortbows/vole_bone_shortbow.tres" id="3_o1ird"]
 [ext_resource type="Script" path="res://src/loot_tables/entries/entry.gd" id="4_8ty5t"]
 [ext_resource type="Script" path="res://src/loot_tables/pools/pool.gd" id="5_2s0l6"]
 
