@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bdfvxmqa0n6be"]
+
+[ext_resource type="Script" path="res://src/projectiles/fire_staff_projectile.gd" id="1_67iho"]
+[ext_resource type="PackedScene" uid="uid://bp2x7jc1o5ynq" path="res://src/components/hit_box.tscn" id="3_iy3w6"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5d6jf"]
+load_path = "res://.godot/imported/32x32.png-e72894ccb86f36ffcb11d38e5757662e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byloj"]
+atlas = SubResource("CompressedTexture2D_5d6jf")
+region = Rect2(1760, 32, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_afkra"]
+
+[node name="FireStaffProjectile" type="Node2D"]
+script = ExtResource("1_67iho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_byloj")
+
+[node name="HitBox" parent="." instance=ExtResource("3_iy3w6")]
+collision_mask = 2
+damage_type = "fire"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_afkra")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -5,11 +5,11 @@
 [ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_vs5n0"]
 [ext_resource type="Resource" uid="uid://cv41b4o3k80ve" path="res://src/items/daggers/dagger1.tres" id="4_3v4dn"]
 [ext_resource type="Resource" uid="uid://ndjx15w37c68" path="res://src/items/shortbows/shortbow1.tres" id="6_6kh6x"]
-[ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/fire_staffs/mage_staff1.tres" id="6_tgfhc"]
+[ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/fire_staffs/fire_staff1.tres" id="6_tgfhc"]
 [ext_resource type="Resource" uid="uid://crf0upx26nnhn" path="res://src/items/daggers/dagger2.tres" id="7_e7ydj"]
 [ext_resource type="Resource" uid="uid://cnm6cri145ubb" path="res://src/items/consumables/stamina_potion.tres" id="7_o55n5"]
 [ext_resource type="Resource" uid="uid://bjkqho8cocr2t" path="res://src/items/shortbows/vole_bone_shortbow.tres" id="7_uuvds"]
-[ext_resource type="Resource" uid="uid://dexb7douil1ub" path="res://src/items/fire_staffs/mage_staff3.tres" id="8_vli82"]
+[ext_resource type="Resource" uid="uid://dexb7douil1ub" path="res://src/items/fire_staffs/fire_staff3.tres" id="8_vli82"]
 [ext_resource type="Resource" uid="uid://dy0flg6sn8b8f" path="res://src/items/shortbows/shortbow4.tres" id="9_jkgh1"]
 [ext_resource type="Resource" uid="uid://ct35j6gm2qvoa" path="res://src/items/daggers/dagger5.tres" id="9_rt46l"]
 

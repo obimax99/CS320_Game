@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://src/loot_tables/entries/entry.gd" id="2_mk6kr"]
 [ext_resource type="Resource" uid="uid://crf0upx26nnhn" path="res://src/items/daggers/dagger2.tres" id="3_dlbbf"]
 [ext_resource type="Resource" uid="uid://bao00ul1xacpy" path="res://src/items/daggers/dagger3.tres" id="4_dkgvx"]
-[ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/fire_staffs/mage_staff1.tres" id="4_h2kev"]
-[ext_resource type="Resource" uid="uid://b2ajho3iyapir" path="res://src/items/fire_staffs/mage_staff2.tres" id="5_i7sqn"]
+[ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/fire_staffs/fire_staff1.tres" id="5_gw1fn"]
 [ext_resource type="Script" path="res://src/loot_tables/pools/pool.gd" id="6_jrnka"]
-[ext_resource type="Resource" uid="uid://dexb7douil1ub" path="res://src/items/fire_staffs/mage_staff3.tres" id="7_7ga8n"]
+[ext_resource type="Resource" uid="uid://b2ajho3iyapir" path="res://src/items/fire_staffs/fire_staff2.tres" id="6_v5umr"]
+[ext_resource type="Resource" uid="uid://dexb7douil1ub" path="res://src/items/fire_staffs/fire_staff3.tres" id="7_56pfi"]
 
 [sub_resource type="Resource" id="Resource_hwu5o"]
 script = ExtResource("2_mk6kr")
@@ -26,17 +26,17 @@ weight = 1
 
 [sub_resource type="Resource" id="Resource_s08tf"]
 script = ExtResource("2_mk6kr")
-item = ExtResource("4_h2kev")
+item = ExtResource("5_gw1fn")
 weight = 1
 
 [sub_resource type="Resource" id="Resource_jym47"]
 script = ExtResource("2_mk6kr")
-item = ExtResource("5_i7sqn")
+item = ExtResource("6_v5umr")
 weight = 2
 
 [sub_resource type="Resource" id="Resource_dv55q"]
 script = ExtResource("2_mk6kr")
-item = ExtResource("7_7ga8n")
+item = ExtResource("7_56pfi")
 weight = 1
 
 [resource]
