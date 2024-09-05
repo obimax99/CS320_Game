@@ -47,11 +47,11 @@ func set_projectile_instance_values(projectile_instance):
 	projectile_instance.swing_projectile_arc_degrees = swing_projectile_arc_degrees
 	return
 	
-func set_universal_projectile_attributes(damage, speed, range, type):
-	projectile_damage = damage
-	projectile_speed = speed
-	projectile_range = range
-	projectile_type = type
+func set_universal_projectile_attributes(damage_param, speed_param, range_param, type_param):
+	projectile_damage = damage_param
+	projectile_speed = speed_param
+	projectile_range = range_param
+	projectile_type = type_param
 	
 func set_poison_projectile_attributes(effect_active, percent_of_max_health_per_second, duration):
 	poison_component.effect_active = effect_active

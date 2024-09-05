@@ -51,7 +51,7 @@ func _on_health_container_health_depleted():
 	queue_free()
 
 
-func _on_hurt_box_hurt(hit_box):
+func _on_hurt_box_hurt(_hit_box):
 	$bughurt.play(3.3)
 
 
