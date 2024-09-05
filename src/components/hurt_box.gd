@@ -43,7 +43,6 @@ func resolve_poison():
 	var damage_per_second: float = health_container.max_health * poison_component.percent_of_max_health_per_second / 100.0
 	#print("max health = ", health_container.max_health)
 	#print("damage_per_second = ", damage_per_second)
-	var curr_time: float = Time.get_ticks_msec() / 1000.0
 	var total_ticks: float = floor(poison_component.duration)
 	for i in total_ticks:
 		health_container.damage(damage_per_second, "death")

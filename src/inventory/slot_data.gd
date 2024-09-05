@@ -17,7 +17,8 @@ func can_fully_merge_with(other_slot_data: SlotData) -> bool:
 		and quantity + other_slot_data.quantity <= MAX_STACK_SIZE
 		
 func merge_with(other_slot_data: SlotData):
-	quantity+= 1
+	quantity += 1
+	other_slot_data.quantity -= 1
 		
 func fully_merge_with(other_slot_data: SlotData):
 	quantity += other_slot_data.quantity

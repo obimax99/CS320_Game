@@ -7,5 +7,5 @@ extends Resource
 @export var stackable: bool = false
 @export var texture: AtlasTexture
 
-func use(target):
+func use(_target):
 	pass

@@ -79,7 +79,6 @@ func gain_xp(amount):
 
 # Checks if a character meets a threshold requried for leveling up
 func checkLevelUp():
-	var max_level = len(xp_level_thresholds)
 	if level > max_level:
 		return
 	if xp >= xp_level_thresholds[level - 1]:
@@ -98,13 +97,13 @@ func levelUp():
 	base_energy_regen += 2
 	level += 1
 	update_stat_totals()
-	var Player = get_parent()
-	Player.set_health()
-	Player.set_speed()
+	var player = get_parent()
+	player.set_health()
+	player.set_speed()
 	emit_signal("player_leveled_up")
 
 
 func _on_regen_timer_timeout():
-	var Player = get_parent()
-	Player.heal(hp_regen)
-	Player.energize(energy_regen)
+	var player = get_parent()
+	player.heal(hp_regen)
+	player.energize(energy_regen)
