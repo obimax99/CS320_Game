@@ -7,6 +7,7 @@ extends Node2D
 @export_range(5, 500, 1) var projectile_range: float = 0
 @export_enum("line", "swing") var projectile_type: String = "line"
 @export var projectile_aoe_explosion: bool = false
+@export var swing_projectile_arc_degrees: float = 90
 @onready var poison_component = $PoisonComponent
 @onready var knockback_component = $KnockbackComponent
 
@@ -43,6 +44,7 @@ func set_projectile_instance_values(projectile_instance):
 	projectile_instance.projectile_range = projectile_range
 	projectile_instance.projectile_type = projectile_type
 	projectile_instance.aoe_explosion = projectile_aoe_explosion
+	projectile_instance.swing_projectile_arc_degrees = swing_projectile_arc_degrees
 	return
 	
 func set_universal_projectile_attributes(damage, speed, range, type):
