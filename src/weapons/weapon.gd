@@ -18,8 +18,24 @@ var dex_ratio: float
 var atk_ratio: float
 @export var special_energy_cost: float = 5
 
+@onready var knockback_component: KnockbackComponent = get_node_or_null("KnockbackComponent")
+@onready var poison_component: PoisonComponent = get_node_or_null("PoisonComponent")
+
+
 func _ready():
-	pass
+	set_base_values()
+	set_rarity_bonuses()
+	set_stat_bonuses()
+	
+	projectile_spawner.set_universal_projectile_attributes(projectile_damage, 
+		projectile_speed, projectile_range, projectile_type)
+	if knockback_component:
+		projectile_spawner.set_knockback_projectile_attributes(knockback_component.effect_active,
+		knockback_component.knockback)
+	if poison_component:
+		projectile_spawner.set_poison_projectile_attributes(poison_component.effect_active,
+		poison_component.percent_of_max_health_per_second, poison_component.duration)
+
 
 func set_base_values():
 	dex_ratio = base_dex_ratio

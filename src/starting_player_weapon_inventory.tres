@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="InventoryDataWeapon" load_steps=5 format=3 uid="uid://bsds0fg82wsi2"]
 
 [ext_resource type="Script" path="res://src/inventory/inventory_data_weapon.gd" id="1_oa3c0"]
-[ext_resource type="Resource" uid="uid://cv41b4o3k80ve" path="res://src/items/daggers/dagger1.tres" id="2_7ynjq"]
+[ext_resource type="Resource" uid="uid://dhpjd25lydlbq" path="res://src/items/clubs/club1.tres" id="2_40rvc"]
 [ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_iww3v"]
 
 [sub_resource type="Resource" id="Resource_3gsdg"]
 script = ExtResource("3_iww3v")
-item_data = ExtResource("2_7ynjq")
+item_data = ExtResource("2_40rvc")
 quantity = 1
 
 [resource]

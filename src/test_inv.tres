@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/inventory/inventory_data.gd" id="1_ah51f"]
 [ext_resource type="Resource" uid="uid://caf84bc2rqsw8" path="res://src/items/consumables/health_potion.tres" id="2_qulsv"]
 [ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_vs5n0"]
-[ext_resource type="Resource" uid="uid://cv41b4o3k80ve" path="res://src/items/daggers/dagger1.tres" id="4_3v4dn"]
+[ext_resource type="Resource" uid="uid://dhpjd25lydlbq" path="res://src/items/clubs/club1.tres" id="4_e3fha"]
 [ext_resource type="Resource" uid="uid://ndjx15w37c68" path="res://src/items/shortbows/shortbow1.tres" id="6_6kh6x"]
 [ext_resource type="Resource" uid="uid://dhgpje7w7l1de" path="res://src/items/fire_staffs/fire_staff1.tres" id="6_tgfhc"]
 [ext_resource type="Resource" uid="uid://crf0upx26nnhn" path="res://src/items/daggers/dagger2.tres" id="7_e7ydj"]
@@ -20,7 +20,7 @@ quantity = 4
 
 [sub_resource type="Resource" id="Resource_esjqe"]
 script = ExtResource("3_vs5n0")
-item_data = ExtResource("4_3v4dn")
+item_data = ExtResource("4_e3fha")
 quantity = 1
 
 [sub_resource type="Resource" id="Resource_otocq"]

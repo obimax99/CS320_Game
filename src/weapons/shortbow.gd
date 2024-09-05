@@ -8,13 +8,9 @@ var num_special_bolts: int = 7
 var angle_per_bolt: float
 
 func _ready():
-	set_base_values()
-	set_rarity_bonuses()
-	set_stat_bonuses()
+	super._ready()
 	num_special_bolts = num_special_bolts-1
 	angle_per_bolt = special_angle/(num_special_bolts)
-	projectile_spawner.set_universal_projectile_attributes(projectile_damage, 
-		projectile_speed, projectile_range, projectile_type)
 
 func basic_attack():
 	var current_time = Time.get_ticks_msec() / 1000.0
