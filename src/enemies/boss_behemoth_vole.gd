@@ -145,7 +145,7 @@ func _on_hurt_box_hurt(_hit_box):
 	if (_second_phase == false && !_is_backstepping && curr_health <= _max_hp * 0.5):
 		_second_phase = true
 		var player_level: int = _player.get_node("PlayerStats").level
-		var ring_num: int = clamp(int(player_level / 2), 1, 6)
+		var ring_num: int = clamp(floor(floor(player_level) / 2), 1, 6)
 		_summon_voles(ring_num)
 		
 	$BearHurt.play( .42 )
