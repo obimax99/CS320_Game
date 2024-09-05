@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://ce2ci42dwgv5w"]
+
+[ext_resource type="Script" path="res://src/weapons/club.gd" id="1_8cmrg"]
+[ext_resource type="PackedScene" uid="uid://bhgvfs2sl78bn" path="res://src/components/projectile_spawner.tscn" id="2_lvgq8"]
+[ext_resource type="PackedScene" uid="uid://df1ng2o7vsqfs" path="res://src/projectiles/club_projectile.tscn" id="3_1i1x1"]
+[ext_resource type="Script" path="res://src/components/knockback_component.gd" id="4_6vsf4"]
+
+[node name="Club" type="Node2D"]
+script = ExtResource("1_8cmrg")
+projectile_speed = 360.0
+projectile_range = 32.0
+projectile_type = "swing"
+base_dex_ratio = 0.7
+base_atk_ratio = 10.0
+special_energy_cost = 80.0
+
+[node name="ProjectileSpawner" parent="." instance=ExtResource("2_lvgq8")]
+projectile = ExtResource("3_1i1x1")
+
+[node name="KnockbackComponent" type="Node" parent="."]
+script = ExtResource("4_6vsf4")
+effect_active = true
+knockback = 400.0

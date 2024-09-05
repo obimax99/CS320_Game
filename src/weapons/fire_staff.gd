@@ -5,12 +5,7 @@ var aoe_explosion: bool = false
 
 
 func _ready():
-	set_base_values()
-	set_rarity_bonuses()
-	set_stat_bonuses()
-	
-	projectile_spawner.set_universal_projectile_attributes(projectile_damage, 
-		projectile_speed, projectile_range, projectile_type)
+	super._ready()
 	projectile_spawner.projectile_aoe_explosion = aoe_explosion
 
 

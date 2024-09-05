@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://df1ng2o7vsqfs"]
+
+[ext_resource type="Script" path="res://src/projectiles/club_projectile.gd" id="1_ikd3f"]
+[ext_resource type="PackedScene" uid="uid://bp2x7jc1o5ynq" path="res://src/components/hit_box.tscn" id="3_ou7br"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5d6jf"]
+load_path = "res://.godot/imported/32x32.png-e72894ccb86f36ffcb11d38e5757662e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1fyf"]
+atlas = SubResource("CompressedTexture2D_5d6jf")
+region = Rect2(1536, 320, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i1kv7"]
+size = Vector2(21.3137, 28.3345)
+
+[node name="ClubProjectile" type="Node2D"]
+script = ExtResource("1_ikd3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 2.35619
+texture = SubResource("AtlasTexture_d1fyf")
+
+[node name="HitBox" parent="." instance=ExtResource("3_ou7br")]
+rotation = 1.5708
+damage_type = "smash"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("RectangleShape2D_i1kv7")
