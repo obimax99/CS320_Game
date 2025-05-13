@@ -99,7 +99,6 @@ pitch_scale = 0.5
 max_polyphony = 10
 
 [node name="xp_dropper" parent="." instance=ExtResource("12_ek46y")]
-xp_drop_amount = 10
 
 [node name="ItemDropper" parent="." instance=ExtResource("11_0evsp")]
 loot_table = ExtResource("12_hghiu")
