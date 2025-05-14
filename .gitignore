@@ -16,3 +16,8 @@ mono_crash.*.json
 
 # Ignore dumb macOS metadata
 .DS_Store
+
+# Items not needed
+gimp_files/
+assets/EnemyCompendium.xlsx
+assets/~$EnemyCompendium.xlsx
