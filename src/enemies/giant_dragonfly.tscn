@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://djv6bxpkal1st"]
+[gd_scene load_steps=20 format=3 uid="uid://djv6bxpkal1st"]
 
 [ext_resource type="PackedScene" uid="uid://0eylbqrkfcsh" path="res://src/components/collider_detector.tscn" id="1_44esr"]
 [ext_resource type="Texture2D" uid="uid://dkenseujuv7a1" path="res://assets/enemies/giant_dragonfly.png" id="1_gxes3"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://c7cxtbmahq3d3" path="res://src/components/hit_effect_player.tscn" id="12_8fnxu"]
 [ext_resource type="PackedScene" uid="uid://bq1h12ufhn45c" path="res://src/components/death_animator.tscn" id="13_qnlge"]
 [ext_resource type="PackedScene" uid="uid://wt5ry5pjhw87" path="res://src/components/xp_dropper.tscn" id="13_vykgy"]
+[ext_resource type="PackedScene" uid="uid://w6rkumtj53sf" path="res://src/components/enemy_hud.tscn" id="15_tvdkm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3yxi0"]
 radius = 300.0
@@ -103,6 +104,10 @@ sound_effect = ExtResource("9_ayftr")
 [node name="DragonflySync" type="MultiplayerSynchronizer" parent="."]
 unique_name_in_owner = true
 replication_config = SubResource("SceneReplicationConfig_a7wof")
+
+[node name="EnemyHud" parent="." node_paths=PackedStringArray("health_container", "hurt_box") instance=ExtResource("15_tvdkm")]
+health_container = NodePath("../HealthContainer")
+hurt_box = NodePath("../HurtBox")
 
 [connection signal="health_depleted" from="HealthContainer" to="." method="_on_health_container_health_depleted"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]

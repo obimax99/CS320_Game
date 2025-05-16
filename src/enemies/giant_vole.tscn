@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dde3h6haoynnn"]
+[gd_scene load_steps=21 format=3 uid="uid://dde3h6haoynnn"]
 
 [ext_resource type="Texture2D" uid="uid://e351ya36oghj" path="res://assets/enemies/giant_vole.png" id="1_6ruth"]
 [ext_resource type="Script" path="res://src/enemies/giant_vole.gd" id="1_36olq"]
@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://c7iqvsjxjm5i6" path="res://src/loot_tables/minorL1.tres" id="12_hghiu"]
 [ext_resource type="PackedScene" uid="uid://c7cxtbmahq3d3" path="res://src/components/hit_effect_player.tscn" id="13_176fi"]
 [ext_resource type="PackedScene" uid="uid://bq1h12ufhn45c" path="res://src/components/death_animator.tscn" id="14_oxfny"]
+[ext_resource type="PackedScene" uid="uid://w6rkumtj53sf" path="res://src/components/enemy_hud.tscn" id="15_rdd6a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bosjk"]
 radius = 200.0
@@ -113,6 +114,10 @@ sprite = NodePath("../Sprite2D")
 sound_effect = ExtResource("9_6qna4")
 sound_Volume_dB = 0.4
 sound_offset = 0.05
+
+[node name="EnemyHud" parent="." node_paths=PackedStringArray("health_container", "hurt_box") instance=ExtResource("15_rdd6a")]
+health_container = NodePath("../HealthContainer")
+hurt_box = NodePath("../HurtBox")
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="health_depleted" from="HealthContainer" to="." method="_on_health_container_health_depleted"]

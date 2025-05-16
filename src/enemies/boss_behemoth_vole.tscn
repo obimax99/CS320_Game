@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cic55om7hfudf"]
+[gd_scene load_steps=20 format=3 uid="uid://cic55om7hfudf"]
 
 [ext_resource type="Script" path="res://src/enemies/boss_behemoth_vole.gd" id="1_y2xdq"]
 [ext_resource type="PackedScene" uid="uid://dr6f73vjifb6k" path="res://src/components/motion_controller.tscn" id="2_43mtr"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://wt5ry5pjhw87" path="res://src/components/xp_dropper.tscn" id="12_xvlsu"]
 [ext_resource type="PackedScene" uid="uid://c7cxtbmahq3d3" path="res://src/components/hit_effect_player.tscn" id="13_tgxy5"]
 [ext_resource type="PackedScene" uid="uid://bq1h12ufhn45c" path="res://src/components/death_animator.tscn" id="15_ed4in"]
+[ext_resource type="PackedScene" uid="uid://w6rkumtj53sf" path="res://src/components/enemy_hud.tscn" id="16_tpobg"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wb35t"]
 radius = 19.0
@@ -103,6 +104,10 @@ sprite = NodePath("../Sprite2D")
 sprite_scale = Vector2(2.5, 2.5)
 sound_effect = ExtResource("7_sgxui")
 sound_Volume_dB = 2.971
+
+[node name="EnemyHud" parent="." node_paths=PackedStringArray("health_container", "hurt_box") instance=ExtResource("16_tpobg")]
+health_container = NodePath("../HealthContainer")
+hurt_box = NodePath("../HurtBox")
 
 [connection signal="health_depleted" from="HealthContainer" to="." method="_on_health_container_health_depleted"]
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
