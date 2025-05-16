@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://w6rkumtj53sf"]
+
+[ext_resource type="Script" path="res://src/components/enemy_hud.gd" id="1_d1ai8"]
+[ext_resource type="PackedScene" uid="uid://b42eu4fhc7dfk" path="res://src/UI/status_effects_ui.tscn" id="2_qy60a"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x3bg7"]
+bg_color = Color(0.6, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lgvp"]
+bg_color = Color(1, 0, 0, 1)
+
+[node name="EnemyHud" type="Node2D"]
+script = ExtResource("1_d1ai8")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+
+[node name="HealthBar" type="ProgressBar" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = 11.0
+offset_right = 13.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_x3bg7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7lgvp")
+value = 100.0
+show_percentage = false
+
+[node name="StatusEffectsUI" parent="Control" instance=ExtResource("2_qy60a")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.550781
+anchor_top = 0.34375
+anchor_right = 0.550781
+anchor_bottom = 0.34375
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true

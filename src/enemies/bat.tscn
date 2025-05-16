@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://c8g203cfa4llk"]
+[gd_scene load_steps=18 format=3 uid="uid://c8g203cfa4llk"]
 
 [ext_resource type="PackedScene" uid="uid://dxoarw6w1dm6h" path="res://src/components/health_container.tscn" id="1_6lb5e"]
 [ext_resource type="PackedScene" uid="uid://0eylbqrkfcsh" path="res://src/components/collider_detector.tscn" id="1_40erc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://c7cxtbmahq3d3" path="res://src/components/hit_effect_player.tscn" id="9_lrtek"]
 [ext_resource type="PackedScene" uid="uid://bq1h12ufhn45c" path="res://src/components/death_animator.tscn" id="10_5gkr8"]
 [ext_resource type="AudioStream" uid="uid://bcfbyfiwj7eyy" path="res://assets/sfx/bathurt.mp3" id="11_04w8b"]
+[ext_resource type="PackedScene" uid="uid://w6rkumtj53sf" path="res://src/components/enemy_hud.tscn" id="12_fpvsa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5sefs"]
 radius = 250.0
@@ -98,6 +99,10 @@ sound_effect = ExtResource("11_04w8b")
 [node name="BatSync" type="MultiplayerSynchronizer" parent="."]
 unique_name_in_owner = true
 replication_config = SubResource("SceneReplicationConfig_2tojv")
+
+[node name="EnemyHud" parent="." node_paths=PackedStringArray("health_container", "hurt_box") instance=ExtResource("12_fpvsa")]
+health_container = NodePath("../HealthContainer")
+hurt_box = NodePath("../HurtBox")
 
 [connection signal="health_depleted" from="HealthContainer" to="." method="_on_health_container_health_depleted"]
 [connection signal="tree_entered" from="BatSync" to="." method="_on_tree_entered"]

@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="InventoryDataWeapon" load_steps=5 format=3 uid="uid://cpgskabofw45a"]
 
 [ext_resource type="Script" path="res://src/inventory/inventory_data_weapon.gd" id="1_m6kfx"]
-[ext_resource type="Resource" uid="uid://ndjx15w37c68" path="res://src/items/shortbows/shortbow1.tres" id="2_bk3rw"]
+[ext_resource type="Resource" uid="uid://bjkqho8cocr2t" path="res://src/items/shortbows/vole_bone_shortbow.tres" id="2_0tlss"]
 [ext_resource type="Script" path="res://src/inventory/slot_data.gd" id="3_odfhn"]
 
 [sub_resource type="Resource" id="Resource_4m81c"]
 script = ExtResource("3_odfhn")
-item_data = ExtResource("2_bk3rw")
+item_data = ExtResource("2_0tlss")
 quantity = 1
 
 [resource]

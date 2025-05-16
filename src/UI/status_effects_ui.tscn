@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://b42eu4fhc7dfk"]
+
+[ext_resource type="Script" path="res://src/UI/status_effects_ui.gd" id="1_iny4h"]
+[ext_resource type="Texture2D" uid="uid://dowptaik2fcbt" path="res://assets/icons/blessed_icon.png" id="2_6r6ac"]
+[ext_resource type="Texture2D" uid="uid://dilo1dhnsb8e0" path="res://assets/icons/poisoned_icon.png" id="3_3hn6a"]
+[ext_resource type="Texture2D" uid="uid://byloal11rhgp8" path="res://assets/icons/burning_icon.png" id="4_wesfp"]
+[ext_resource type="Texture2D" uid="uid://d02eq7cry3351" path="res://assets/icons/crippled_icon.png" id="5_yibs2"]
+[ext_resource type="Texture2D" uid="uid://mdgvxvrlkjwe" path="res://assets/icons/dazed_icon.png" id="6_jiyoa"]
+[ext_resource type="Texture2D" uid="uid://cx0nlv7yd6b0v" path="res://assets/icons/slowed_icon.png" id="7_ql5d6"]
+[ext_resource type="Texture2D" uid="uid://bpwj6n84ma07e" path="res://assets/icons/sapped_icon.png" id="8_w3pio"]
+
+[node name="StatusEffectsUI" type="Control"]
+modulate = Color(1, 1, 1, 0.917647)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_iny4h")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 32.0
+grow_horizontal = 2
+scale = Vector2(0.5, 0.5)
+
+[node name="BlessedIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("2_6r6ac")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="PoisonedIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("3_3hn6a")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="BurnedIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("4_wesfp")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="CrippledIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("5_yibs2")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="DazedIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("6_jiyoa")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="SlowedIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("7_ql5d6")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="SappedIcon" type="TextureRect" parent="HBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture = ExtResource("8_w3pio")
+expand_mode = 2
+stretch_mode = 2
