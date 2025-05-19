@@ -40,14 +40,6 @@ grow_vertical = 2
 size_flags_horizontal = 8
 script = ExtResource("4_ri52f")
 
-[node name="GrabbedSlot" parent="UI/InventoryInterface" instance=ExtResource("6_sdpfa")]
-visible = false
-modulate = Color(1, 1, 1, 0.490196)
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_right = 64.0
-offset_bottom = 64.0
-
 [node name="PlayerInventory" parent="UI/InventoryInterface" instance=ExtResource("3_bj3aa")]
 layout_mode = 0
 offset_left = 202.0
@@ -84,6 +76,13 @@ offset_bottom = 210.0
 item_grid_columns = 1
 inv_h_separation = 16
 inv_v_separation = 16
+
+[node name="GrabbedSlot" parent="UI" instance=ExtResource("6_sdpfa")]
+visible = false
+modulate = Color(1, 1, 1, 0.490196)
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 64.0
+offset_bottom = 64.0
 
 [node name="WeaponInventory" parent="UI" instance=ExtResource("3_bj3aa")]
 offset_left = 10.0
