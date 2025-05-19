@@ -5,7 +5,7 @@ signal drop_slot_data(slot_data: SlotData)
 var grabbed_slot_data: SlotData
 
 @onready var player_inventory: PanelContainer = $PlayerInventory
-@onready var grabbed_slot: PanelContainer = $GrabbedSlot
+@onready var grabbed_slot: PanelContainer = $"../GrabbedSlot"
 @onready var weapon_inventory: PanelContainer = $"../WeaponInventory"
 @onready var offhand_inventory: PanelContainer = $OffhandInventory
 @onready var consumable_inventory: PanelContainer = $"../ConsumableInventory"
